@@ -230,14 +230,20 @@ class Modules(object):
         Finds all modules in the subdirs of directory
         """
         logger.debug("discovering modules in %s" %directory)
+        # discovering modules in /tmp/cct/
         for root, _, files in os.walk(directory):
             candidate_dir = root.replace(directory, "", 1)
+# should be </tmp/cct/> 
             logging.debug("candidate_dir: {}".format(candidate_dir))
             if candidate_dir.startswith("/tests") or candidate_dir.startswith("/."):
+                continue
+            if candidate_dir.startswith("tests"):
+                logger.debug("JON SKIP says YESH")
                 continue
             for candidate in files:
                 if os.path.splitext(candidate)[1] == '.py':
                     logger.debug("inspecting %s" %root + "/" + candidate)
+                    # inspecting /tmp/cct/base/tests/test_unit_module_file.py
                     try:
                         self.check_module(root + "/" + candidate)
                     except Exception as e:
