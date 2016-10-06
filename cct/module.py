@@ -232,7 +232,7 @@ class Modules(object):
         logger.debug("discovering modules in %s" %directory)
         for root, _, files in os.walk(directory):
             candidate_dir = root.replace(directory, "", 1)
-            self.logger.debug("candidate_dir: {}".format(candidate_dir))
+            logging.debug("candidate_dir: {}".format(candidate_dir))
             if candidate_dir.startswith("/tests") or candidate_dir.startswith("/."):
                 continue
             for candidate in files:
