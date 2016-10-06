@@ -11,7 +11,7 @@ Summary:        Container configuration tool
 Group:          Development/Tools
 License:        MIT
 URL:            https://github.com/containers-tools/cct
-Source0:        ${version}.tar.gz
+Source0:        0.0.1.dev0.tar.gz
 
 BuildArch:      noarch
 
